@@ -1,5 +1,5 @@
 //
-//  FirstViewController.swift
+//  SecondViewController.swift
 //  Flickr
 //
 //  Created by Дмитрий Вашлаев on 14.10.18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FirstViewController: UIViewController {
+class MostPopularViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

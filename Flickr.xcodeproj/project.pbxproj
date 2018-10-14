@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0AA64057217342AE00303DD7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA64056217342AE00303DD7 /* AppDelegate.swift */; };
-		0AA64059217342AE00303DD7 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA64058217342AE00303DD7 /* FirstViewController.swift */; };
-		0AA6405B217342AE00303DD7 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA6405A217342AE00303DD7 /* SecondViewController.swift */; };
+		0AA64059217342AE00303DD7 /* SearchCamerasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA64058217342AE00303DD7 /* SearchCamerasViewController.swift */; };
+		0AA6405B217342AE00303DD7 /* MostPopularViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA6405A217342AE00303DD7 /* MostPopularViewController.swift */; };
 		0AA6405E217342AE00303DD7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AA6405C217342AE00303DD7 /* Main.storyboard */; };
 		0AA64060217342AE00303DD7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AA6405F217342AE00303DD7 /* Assets.xcassets */; };
 		0AA64063217342AE00303DD7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AA64061217342AE00303DD7 /* LaunchScreen.storyboard */; };
@@ -19,8 +19,8 @@
 /* Begin PBXFileReference section */
 		0AA64053217342AE00303DD7 /* Flickr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flickr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AA64056217342AE00303DD7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0AA64058217342AE00303DD7 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		0AA6405A217342AE00303DD7 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		0AA64058217342AE00303DD7 /* SearchCamerasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCamerasViewController.swift; sourceTree = "<group>"; };
+		0AA6405A217342AE00303DD7 /* MostPopularViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostPopularViewController.swift; sourceTree = "<group>"; };
 		0AA6405D217342AE00303DD7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0AA6405F217342AE00303DD7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0AA64062217342AE00303DD7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -73,13 +73,37 @@
 			children = (
 				0AA6405C217342AE00303DD7 /* Main.storyboard */,
 				0AA64056217342AE00303DD7 /* AppDelegate.swift */,
-				0AA64058217342AE00303DD7 /* FirstViewController.swift */,
-				0AA6405A217342AE00303DD7 /* SecondViewController.swift */,
+				0AA6406A21735D2400303DD7 /* Views */,
 				0AA6405F217342AE00303DD7 /* Assets.xcassets */,
 				0AA64061217342AE00303DD7 /* LaunchScreen.storyboard */,
 				0AA64064217342AE00303DD7 /* Info.plist */,
 			);
 			path = Flickr;
+			sourceTree = "<group>";
+		};
+		0AA6406A21735D2400303DD7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0AA6406B21735D3400303DD7 /* Search Tab */,
+				0AA6406C21735D3D00303DD7 /* Most Popular Tab */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0AA6406B21735D3400303DD7 /* Search Tab */ = {
+			isa = PBXGroup;
+			children = (
+				0AA64058217342AE00303DD7 /* SearchCamerasViewController.swift */,
+			);
+			path = "Search Tab";
+			sourceTree = "<group>";
+		};
+		0AA6406C21735D3D00303DD7 /* Most Popular Tab */ = {
+			isa = PBXGroup;
+			children = (
+				0AA6405A217342AE00303DD7 /* MostPopularViewController.swift */,
+			);
+			path = "Most Popular Tab";
 			sourceTree = "<group>";
 		};
 		E9504811B0666C34CDDA1BF4 /* Pods */ = {
@@ -214,9 +238,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0AA6405B217342AE00303DD7 /* SecondViewController.swift in Sources */,
+				0AA6405B217342AE00303DD7 /* MostPopularViewController.swift in Sources */,
 				0AA64057217342AE00303DD7 /* AppDelegate.swift in Sources */,
-				0AA64059217342AE00303DD7 /* FirstViewController.swift in Sources */,
+				0AA64059217342AE00303DD7 /* SearchCamerasViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

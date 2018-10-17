@@ -18,6 +18,7 @@ class SearchCamerasViewController: UIViewController, UISearchBarDelegate, UITabl
     
     // MARK: - Private Properties
     private let searchBar = UISearchBar()
+    private let acitivityIndicator = UIActivityIndicatorView()
     
     
     override func viewDidLoad() {
@@ -28,6 +29,8 @@ class SearchCamerasViewController: UIViewController, UISearchBarDelegate, UITabl
         setUpSearchBar()
         // Configuring Table View
         setUpTableView()
+        // Configuring Activity Indicator
+        setUpActivityIndicator()
         // Update View Controller
         updateViewController()
     }
@@ -47,6 +50,8 @@ class SearchCamerasViewController: UIViewController, UISearchBarDelegate, UITabl
             fatalError("No valid string was submitted")
         }
         
+        acitivityIndicator.startAnimating()
+        UIApplication.shared.beginIgnoringInteractionEvents()
         viewModel.searchCameras(of: searchingString)
     }
     
@@ -95,9 +100,33 @@ class SearchCamerasViewController: UIViewController, UISearchBarDelegate, UITabl
         viewModel.isUpdated.signal.observeResult { [weak self] (result) in
             guard let weakSelf = self else { return }
             DispatchQueue.main.async {
-                weakSelf.tableView.reloadData()
+                weakSelf.acitivityIndicator.stopAnimating()
+                UIApplication.shared.endIgnoringInteractionEvents()
+                
+                weakSelf.nothingIsFound()
+                weakSelf.tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
             }
         }
+    }
+    
+    private func nothingIsFound() {
+        if viewModel.numberOfRowsInSection(0) == 0 {
+            let noDataLabel = UILabel(frame: CGRect(x: 0, y: 0, width: tableView!.bounds.size.width, height: tableView!.bounds.size.height))
+            noDataLabel.text = "Nothing is found"
+            noDataLabel.textColor = UIColor.black
+            noDataLabel.textAlignment = .center
+            
+            tableView!.backgroundView = noDataLabel
+        } else {
+            tableView!.backgroundView = nil
+        }
+    }
+    
+    private func setUpActivityIndicator() {
+        acitivityIndicator.center = view.center
+        acitivityIndicator.hidesWhenStopped = true
+        acitivityIndicator.activityIndicatorViewStyle = .gray
+        view.addSubview(acitivityIndicator)
     }
 }
 

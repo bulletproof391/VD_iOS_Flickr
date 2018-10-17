@@ -16,17 +16,17 @@ final class DetailCellViewModel: CellViewModel {
     
     // MARK: - Initializers
     override init(_ camera: Camera) {
-        super.init(camera)
-        
-        self.imageURL = camera.images?.large?._content
         self.megapixels = camera.details?.megapixels?._content != nil ? camera.details?.megapixels?._content : "N/A"
         self.screenSize = camera.details?.lcd_screen_size?._content != nil ? camera.details?.lcd_screen_size?._content : "N/A"
         self.memoryType = camera.details?.memory_type?._content != nil ? camera.details?.memory_type?._content : "N/A"
+        
+        super.init(camera)
+        self.imageURL = camera.images?.large?._content
         self.cellReuseIdentifier = CellReuseIdentifier.detail.rawValue
     }
     
     override init() {
         super.init()
-        self.cellReuseIdentifier = CellReuseIdentifier.detail.rawValue
+        cellReuseIdentifier = CellReuseIdentifier.detail.rawValue
     }
 }

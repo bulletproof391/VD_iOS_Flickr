@@ -27,7 +27,6 @@ class CellViewModel {
     // MARK: - Initializers
     init() {
         self.title = nil
-        self.image = nil
         self.cellReuseIdentifier = CellReuseIdentifier.common.rawValue
     }
     init(_ camera: Camera) {
@@ -49,6 +48,9 @@ class CellViewModel {
                             weakSelf.image = receivedImage
                         }
                         }.resume()
+                } else {
+                    observer.send(value: #imageLiteral(resourceName: "no image"))
+                    self!.image = #imageLiteral(resourceName: "no image")
                 }
             }
         }

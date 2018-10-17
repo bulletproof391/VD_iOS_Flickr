@@ -76,7 +76,7 @@ class Flickr {
     }
     
     // MARK: - Private Methods
-    func performURLRequestWith(_ url: URL, completionHandler: @escaping (Data?) -> Void) {
+    private func performURLRequestWith(_ url: URL, completionHandler: @escaping (Data?) -> Void) {
         URLSession.shared.dataTask(with: url) { (data, urlRsponse, err) in
             if err == nil {
                 completionHandler(data)
@@ -84,7 +84,7 @@ class Flickr {
             }.resume()
     }
     
-    func initializeURLComponents() -> URLComponents {
+    private func initializeURLComponents() -> URLComponents {
         var components = URLComponents()
         components.scheme = FlickrAPI.scheme.rawValue
         components.host = FlickrAPI.host.rawValue

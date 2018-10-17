@@ -13,9 +13,12 @@ class SearchCamerasViewController: UIViewController, UISearchBarDelegate, UITabl
     @IBOutlet var navigationBar: UINavigationBar!
     @IBOutlet var tableView: UITableView!
     
+    // MARK: - Public Properties
+    var viewModel: SearchCamerasViewModel!
+    
     // MARK: - Private Properties
-    private let detailCellReuseIdentifier = "DetailCell"
-    private let commonCellReuseIdentifier = "CommonCell"
+    private let searchBar = UISearchBar()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +28,8 @@ class SearchCamerasViewController: UIViewController, UISearchBarDelegate, UITabl
         setUpSearchBar()
         // Configuring Table View
         setUpTableView()
+        // Update View Controller
+        updateViewController()
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,22 +38,39 @@ class SearchCamerasViewController: UIViewController, UISearchBarDelegate, UITabl
     }
     
     
+    // MARK: - Search Bar Delegate
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        
+        // start searching
+        guard let searchingString = searchBar.text else {
+            fatalError("No valid string was submitted")
+        }
+        
+        viewModel.searchCameras(of: searchingString)
+    }
+    
+    
     // MARK: - Table View Data Source Delegate
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return viewModel.numberOfSections()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return viewModel.numberOfRowsInSection(section)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cellViewModel = viewModel.cellForRowAt(indexPath)
         var cell: UITableViewCell
         
-        if indexPath.row == 0 || indexPath.row == 2 {
-            cell = tableView.dequeueReusableCell(withIdentifier: detailCellReuseIdentifier, for: indexPath)
-        } else {
-            cell = tableView.dequeueReusableCell(withIdentifier: commonCellReuseIdentifier, for: indexPath)
+        switch cellViewModel.cellReuseIdentifier {
+        case CellReuseIdentifier.detail.rawValue:
+            cell = tableView.dequeueReusableCell(withIdentifier: cellViewModel.cellReuseIdentifier, for: indexPath) as! DetailTableViewCell
+            (cell as! DetailTableViewCell).viewModel.value = cellViewModel as! DetailCellViewModel
+        default:
+            cell = tableView.dequeueReusableCell(withIdentifier: cellViewModel.cellReuseIdentifier, for: indexPath) as! CommonTableViewCell
+            (cell as! CommonTableViewCell).viewModel.value = cellViewModel as! CommonCellViewModel
         }
         
         return cell
@@ -57,8 +79,6 @@ class SearchCamerasViewController: UIViewController, UISearchBarDelegate, UITabl
     
     // MARK: - Private Methods
     private func setUpSearchBar() {
-        let searchBar = UISearchBar()
-        
         searchBar.showsCancelButton = false
         searchBar.placeholder = "Search cameras"
         searchBar.delegate = self
@@ -68,6 +88,16 @@ class SearchCamerasViewController: UIViewController, UISearchBarDelegate, UITabl
     
     private func setUpTableView() {
         tableView.dataSource = self
+        tableView.allowsSelection = false
+    }
+    
+    private func updateViewController() {
+        viewModel.isUpdated.signal.observeResult { [weak self] (result) in
+            guard let weakSelf = self else { return }
+            DispatchQueue.main.async {
+                weakSelf.tableView.reloadData()
+            }
+        }
     }
 }
 

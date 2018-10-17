@@ -23,16 +23,16 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DetailCell" rowHeight="127" id="lxE-xr-JdX">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DetailCell" rowHeight="127" id="lxE-xr-JdX" customClass="DetailTableViewCell" customModule="Flickr" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="127"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lxE-xr-JdX" id="q2t-aP-TCs">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="126.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="a1D-XD-3El">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="a1D-XD-3El">
                                                     <rect key="frame" x="15" y="11" width="105" height="105"/>
-                                                    <color key="backgroundColor" red="0.78030639886856079" green="0.78044146299362183" blue="0.78029793500900269" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="105" id="0Dj-TA-t6y"/>
                                                         <constraint firstAttribute="height" constant="105" id="jPW-BC-DJH"/>
@@ -125,17 +125,24 @@
                                                 <constraint firstItem="JJy-M5-0Vp" firstAttribute="top" secondItem="hmd-Sg-uwj" secondAttribute="bottom" constant="4" id="xtV-NZ-kTI"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="cameraImage" destination="a1D-XD-3El" id="uN6-GS-WB9"/>
+                                            <outlet property="megapixels" destination="avU-vz-Vb5" id="Zhr-Db-waY"/>
+                                            <outlet property="memoryType" destination="JJy-M5-0Vp" id="P94-Ix-Spm"/>
+                                            <outlet property="screenSize" destination="hmd-Sg-uwj" id="3pW-Rg-eor"/>
+                                            <outlet property="title" destination="m81-Hj-dSa" id="JV0-6X-7pd"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CommonCell" rowHeight="92" id="HBa-fv-xbm">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CommonCell" rowHeight="92" id="HBa-fv-xbm" customClass="CommonTableViewCell" customModule="Flickr" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="155" width="375" height="92"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HBa-fv-xbm" id="BVf-hP-je4">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="91.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Hfh-7b-zki">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Hfh-7b-zki">
                                                     <rect key="frame" x="15" y="11" width="70" height="70"/>
-                                                    <color key="backgroundColor" red="0.48803538084030151" green="0.55170363187789917" blue="0.63078337907791138" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="70" id="92l-Zy-r6Q"/>
                                                         <constraint firstAttribute="width" constant="70" id="F18-Tl-b7J"/>
@@ -157,6 +164,10 @@
                                                 <constraint firstItem="XY1-9L-hj2" firstAttribute="top" secondItem="BVf-hP-je4" secondAttribute="topMargin" constant="25" id="wcn-hF-viT"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="cameraImage" destination="Hfh-7b-zki" id="Emf-fT-GhU"/>
+                                            <outlet property="title" destination="XY1-9L-hj2" id="rXD-Aq-d1g"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

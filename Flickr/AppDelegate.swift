@@ -13,61 +13,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        let flickrAPI = Flickr()
-//        flickrAPI.camerasGetBrandModels(brand: "Apple") { [weak self] (camerasData) in
-//            do {
-//                guard let weakSelf = self else { return }
-//                guard let data = camerasData else { return }
-//                // Parsing JSON
-//                let result = try JSONDecoder().decode(CamerasGetBrandModelsResponse.self, from: data)
-//
-//                if let cameras = result.cameras, let camerasList = cameras.camera {
-//                    for item in camerasList {
-//
-//                    }
-////                    completionHandler(goods)
-////
-////                    if page == 0 {
-////                        weakSelf.offset = goods.count
-////                        if goods.count > 0 {
-////                            weakSelf.lastPage = total / weakSelf.offset + 1
-////                        }
-////                    }
-//                }
-//
-//            } catch let jsonErr {
-//                print("JSON serialization error:", jsonErr)
-//            }
-//        }
+        guard let tabBarController = self.window!.rootViewController as? UITabBarController,
+              let viewControllers = tabBarController.viewControllers else { return true }        
         
-        flickrAPI.interestingnessGetList(page: 1) { [weak self] (interestingness) in
-            do {
-                guard let weakSelf = self else { return }
-                guard let data = interestingness else { return }
-                // Parsing JSON
-                let result = try JSONDecoder().decode(InterestingnessResponse.self, from: data)
-                
-                if let photos = result.photos, let photosList = photos.photo {
-                    for item in photosList {
-                        
-                    }
-                    //                    completionHandler(goods)
-                    //
-                    //                    if page == 0 {
-                    //                        weakSelf.offset = goods.count
-                    //                        if goods.count > 0 {
-                    //                            weakSelf.lastPage = total / weakSelf.offset + 1
-                    //                        }
-                    //                    }
-                }
-                
-            } catch let jsonErr {
-                print("JSON serialization error:", jsonErr)
-            }
-        }
+        let camerasModel = CamerasModel()
+        let searchCamerasViewModel = SearchCamerasViewModel(with: camerasModel)
+        let searchCamerasViewController = viewControllers[0] as! SearchCamerasViewController
+        searchCamerasViewController.viewModel = searchCamerasViewModel
         
         return true
     }

@@ -24,6 +24,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let searchCamerasViewController = viewControllers[0] as! SearchCamerasViewController
         searchCamerasViewController.viewModel = searchCamerasViewModel
         
+        let interestingnessModel = InterestingnessModel()
+        let mostPopularViewModel = MostPopularViewModel(with: interestingnessModel)
+        let mostPopularViewController = viewControllers[1] as! MostPopularViewController
+        mostPopularViewController.viewModel = mostPopularViewModel
+        
         return true
     }
 

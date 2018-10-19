@@ -52,7 +52,7 @@ struct PhotosResponse: Decodable {
     var page: Int?
     var pages: Int?
     var perpage: Int?
-    var total: Int?
+    var total: String?
     var photo: [Photo]?
 }
 

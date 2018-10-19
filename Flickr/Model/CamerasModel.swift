@@ -36,32 +36,4 @@ class CamerasModel {
             }
         }
     }
-    
-//    func getInterestingness(page: Int) {
-//        flickrAPI.interestingnessGetList(page: 1) { [weak self] (interestingness) in
-//            do {
-//                guard let weakSelf = self else { return }
-//                guard let data = interestingness else { return }
-//                // Parsing JSON
-//                let result = try JSONDecoder().decode(InterestingnessResponse.self, from: data)
-//
-//                if let photos = result.photos, let photosList = photos.photo {
-//                    for item in photosList {
-//
-//                    }
-//                    //                    completionHandler(goods)
-//                    //
-//                    //                    if page == 0 {
-//                    //                        weakSelf.offset = goods.count
-//                    //                        if goods.count > 0 {
-//                    //                            weakSelf.lastPage = total / weakSelf.offset + 1
-//                    //                        }
-//                    //                    }
-//                }
-//
-//            } catch let jsonErr {
-//                print("JSON serialization error:", jsonErr)
-//            }
-//        }
-//    }
 }

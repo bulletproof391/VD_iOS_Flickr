@@ -20,7 +20,7 @@ class SearchCamerasViewController: UIViewController, UISearchBarDelegate, UITabl
     private let searchBar = UISearchBar()
     private let acitivityIndicator = UIActivityIndicatorView()
     
-    
+    // MARK: - Public Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -117,8 +117,10 @@ class SearchCamerasViewController: UIViewController, UISearchBarDelegate, UITabl
             noDataLabel.textAlignment = .center
             
             tableView!.backgroundView = noDataLabel
+            tableView!.separatorStyle = .none
         } else {
             tableView!.backgroundView = nil
+            tableView!.separatorStyle = .singleLine
         }
     }
     

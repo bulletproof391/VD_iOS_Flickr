@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0AA625B9217A18A50006CFCB /* MostPopularViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA625B8217A18A50006CFCB /* MostPopularViewModel.swift */; };
+		0AA625BC217A18F00006CFCB /* MostPopularCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA625BB217A18F00006CFCB /* MostPopularCollectionViewCell.swift */; };
+		0AA625BF217A19D50006CFCB /* MostPopularCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA625BE217A19D50006CFCB /* MostPopularCellViewModel.swift */; };
+		0AA625C1217A1AA20006CFCB /* InterestingnessModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA625C0217A1AA20006CFCB /* InterestingnessModel.swift */; };
 		0AA64057217342AE00303DD7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA64056217342AE00303DD7 /* AppDelegate.swift */; };
 		0AA64059217342AE00303DD7 /* SearchCamerasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA64058217342AE00303DD7 /* SearchCamerasViewController.swift */; };
 		0AA6405B217342AE00303DD7 /* MostPopularViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA6405A217342AE00303DD7 /* MostPopularViewController.swift */; };
@@ -26,6 +30,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0AA625B8217A18A50006CFCB /* MostPopularViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostPopularViewModel.swift; sourceTree = "<group>"; };
+		0AA625BB217A18F00006CFCB /* MostPopularCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostPopularCollectionViewCell.swift; sourceTree = "<group>"; };
+		0AA625BE217A19D50006CFCB /* MostPopularCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostPopularCellViewModel.swift; sourceTree = "<group>"; };
+		0AA625C0217A1AA20006CFCB /* InterestingnessModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestingnessModel.swift; sourceTree = "<group>"; };
 		0AA64053217342AE00303DD7 /* Flickr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flickr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AA64056217342AE00303DD7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0AA64058217342AE00303DD7 /* SearchCamerasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCamerasViewController.swift; sourceTree = "<group>"; };
@@ -66,6 +74,22 @@
 				808FB771F47D4505DD9273C4 /* Pods_Flickr.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0AA625BA217A18C00006CFCB /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				0AA625BB217A18F00006CFCB /* MostPopularCollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		0AA625BD217A19990006CFCB /* Cell View Model */ = {
+			isa = PBXGroup;
+			children = (
+				0AA625BE217A19D50006CFCB /* MostPopularCellViewModel.swift */,
+			);
+			path = "Cell View Model";
 			sourceTree = "<group>";
 		};
 		0AA6404A217342AE00303DD7 = {
@@ -124,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				0AA6405A217342AE00303DD7 /* MostPopularViewController.swift */,
+				0AA625BA217A18C00006CFCB /* Cell */,
 			);
 			path = "Most Popular Tab";
 			sourceTree = "<group>";
@@ -141,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				0AA640722174C06900303DD7 /* CamerasModel.swift */,
+				0AA625C0217A1AA20006CFCB /* InterestingnessModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -166,6 +192,8 @@
 		0AA6407921761FB500303DD7 /* Most Popular Tab */ = {
 			isa = PBXGroup;
 			children = (
+				0AA625B8217A18A50006CFCB /* MostPopularViewModel.swift */,
+				0AA625BD217A19990006CFCB /* Cell View Model */,
 			);
 			path = "Most Popular Tab";
 			sourceTree = "<group>";
@@ -324,6 +352,7 @@
 				0AA640812176248D00303DD7 /* CellViewModel.swift in Sources */,
 				0AA640852176274B00303DD7 /* CommonCellViewModel.swift in Sources */,
 				0AA6405B217342AE00303DD7 /* MostPopularViewController.swift in Sources */,
+				0AA625BC217A18F00006CFCB /* MostPopularCollectionViewCell.swift in Sources */,
 				0AA640732174C06900303DD7 /* CamerasModel.swift in Sources */,
 				0AA640832176251600303DD7 /* DetailCellViewModel.swift in Sources */,
 				0AA6407D2176210E00303DD7 /* DetailTableViewCell.swift in Sources */,
@@ -331,8 +360,11 @@
 				0AA64057217342AE00303DD7 /* AppDelegate.swift in Sources */,
 				0AA640752174C0CD00303DD7 /* Flickr.swift in Sources */,
 				0AA6407F2176212400303DD7 /* CommonTableViewCell.swift in Sources */,
+				0AA625C1217A1AA20006CFCB /* InterestingnessModel.swift in Sources */,
 				0AA64059217342AE00303DD7 /* SearchCamerasViewController.swift in Sources */,
 				0AA640772174D21400303DD7 /* FlickrResponses.swift in Sources */,
+				0AA625B9217A18A50006CFCB /* MostPopularViewModel.swift in Sources */,
+				0AA625BF217A19D50006CFCB /* MostPopularCellViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -22,6 +22,7 @@ class DetailTableViewCell: UITableViewCell {
     // MARK: - Public Properties
     let viewModel = MutableProperty(DetailCellViewModel())
     
+    // MARK: - Public Methods
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

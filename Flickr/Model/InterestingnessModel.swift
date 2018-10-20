@@ -13,7 +13,7 @@ class InterestingnessModel {
     // MARK: - Public Properties
     let photosList = MutableProperty([Photo]())
     var page = 1
-    var pages = 0
+    var pages = 1
     var itemsPerPage = 10
     
     // MARK: - Private Properties
@@ -30,7 +30,6 @@ class InterestingnessModel {
                 let result = try JSONDecoder().decode(InterestingnessResponse.self, from: data)
 
                 if let photos = result.photos, let photosList = photos.photo {
-                    weakSelf.page = page
                     if page == 1, let newPages = photos.pages, let newPerPage = photos.perpage {
                         weakSelf.pages = newPages
                         weakSelf.itemsPerPage = newPerPage
@@ -43,6 +42,8 @@ class InterestingnessModel {
 
             } catch let jsonErr {
                 print("JSON serialization error:", jsonErr)
+                guard let weakSelf = self else { return }
+                weakSelf.photosList.value.removeAll()
             }
         }
     }

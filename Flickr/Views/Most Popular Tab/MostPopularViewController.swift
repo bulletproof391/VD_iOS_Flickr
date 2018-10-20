@@ -34,6 +34,8 @@ class MostPopularViewController: UIViewController, UICollectionViewDataSource {
         setUpCollectionView()
         // Configuring Activity Indicator
         setUpActivityIndicator()
+        // Configuring Buttons
+        setUpButtons()
         // Update View Controller
         updateViewController()
         
@@ -48,8 +50,12 @@ class MostPopularViewController: UIViewController, UICollectionViewDataSource {
     
     // MARK: Button Actions
     @IBAction func previousPage(_ sender: Any) {
+        viewModel.currentPage -= 1
+        mostPopularPhotos(page: viewModel.currentPage)
     }
     @IBAction func nextPage(_ sender: Any) {
+        viewModel.currentPage += 1
+        mostPopularPhotos(page: viewModel.currentPage)
     }
     
     
@@ -97,6 +103,14 @@ class MostPopularViewController: UIViewController, UICollectionViewDataSource {
             DispatchQueue.main.async {
                 weakSelf.acitivityIndicator.stopAnimating()
                 UIApplication.shared.endIgnoringInteractionEvents()
+                
+                weakSelf.setUpButtons()
+                weakSelf.nothingIsFound()
+                if weakSelf.viewModel.numberOfItemsInSection(0) > 0 {
+                    weakSelf.currentPage.text = "\(weakSelf.viewModel.currentPage) of \(weakSelf.viewModel.totalPages)"
+                } else {
+                    weakSelf.currentPage.text = ""
+                }
                 weakSelf.collectionView.reloadSections(IndexSet(integer: 0))
             }
         }
@@ -113,6 +127,32 @@ class MostPopularViewController: UIViewController, UICollectionViewDataSource {
         acitivityIndicator.startAnimating()
         UIApplication.shared.beginIgnoringInteractionEvents()
         viewModel.mostPopularPhotos(page: page)
+    }
+    
+    private func setUpButtons() {
+        previousButton.isEnabled = true
+        nextButton.isEnabled = true
+        
+        if viewModel.currentPage == 1 {
+            previousButton.isEnabled = false
+        }
+        
+        if viewModel.currentPage == viewModel.totalPages {
+            nextButton.isEnabled = false
+        }
+    }
+    
+    private func nothingIsFound() {
+        if viewModel.numberOfItemsInSection(0) == 0 {
+            let noDataLabel = UILabel(frame: CGRect(x: 0, y: 0, width: collectionView!.bounds.size.width, height: collectionView!.bounds.size.height))
+            noDataLabel.text = "Nothing is found"
+            noDataLabel.textColor = UIColor.black
+            noDataLabel.textAlignment = .center
+            
+            collectionView!.backgroundView = noDataLabel
+        } else {
+            collectionView!.backgroundView = nil
+        }
     }
 }
 

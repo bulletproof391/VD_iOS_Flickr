@@ -12,7 +12,19 @@ import ReactiveSwift
 class MostPopularViewModel {
     // MARK: - Public Properties
     let isUpdated: MutableProperty<Bool>
-    var currentPage = 1
+    var currentPage: Int {
+        get {
+            return dataModel.page
+        }
+        set {
+            dataModel.page = newValue
+        }
+    }
+    var totalPages: Int {
+        get {
+            return dataModel.pages
+        }
+    }
     
     // MARK: - Private Properties
     private let dataModel: InterestingnessModel
@@ -35,7 +47,6 @@ class MostPopularViewModel {
     
     // MARK: - Public Methods
     func mostPopularPhotos(page: Int) {
-        currentPage = page
         dataModel.getInterestingness(page: page)
     }
     

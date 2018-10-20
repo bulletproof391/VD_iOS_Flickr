@@ -246,7 +246,7 @@
                                 </items>
                             </toolbar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="lf3-Yc-I5m">
-                                <rect key="frame" x="0.0" y="20" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="510"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="QGP-34-U19">
                                     <size key="itemSize" width="50" height="50"/>
@@ -262,7 +262,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4tN-Wx-WEs">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4tN-Wx-WEs">
                                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                 </imageView>
                                             </subviews>
@@ -279,16 +279,25 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iKy-Bh-LQ5">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Popular today" id="KLp-3O-5Sx"/>
+                                </items>
+                            </navigationBar>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.97636479139328003" green="0.97653168439865112" blue="0.97635418176651001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="O1u-W8-tvY" firstAttribute="trailing" secondItem="lf3-Yc-I5m" secondAttribute="trailing" id="HeU-gf-GgW"/>
-                            <constraint firstItem="WKr-Sf-X6S" firstAttribute="top" secondItem="lf3-Yc-I5m" secondAttribute="bottom" id="MvC-dd-4iv"/>
+                            <constraint firstItem="iKy-Bh-LQ5" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" id="0yT-T5-3mi"/>
+                            <constraint firstItem="iKy-Bh-LQ5" firstAttribute="top" secondItem="O1u-W8-tvY" secondAttribute="top" id="EWW-8N-AkQ"/>
+                            <constraint firstItem="lf3-Yc-I5m" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" id="MjM-f0-Yef"/>
                             <constraint firstItem="WKr-Sf-X6S" firstAttribute="trailing" secondItem="O1u-W8-tvY" secondAttribute="trailing" id="NKo-CD-tR1"/>
-                            <constraint firstItem="lf3-Yc-I5m" firstAttribute="top" secondItem="O1u-W8-tvY" secondAttribute="top" id="Nr3-6K-uCp"/>
+                            <constraint firstItem="lf3-Yc-I5m" firstAttribute="top" secondItem="iKy-Bh-LQ5" secondAttribute="bottom" id="Vo0-dQ-gax"/>
                             <constraint firstItem="WKr-Sf-X6S" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" id="mTZ-I2-8Do"/>
-                            <constraint firstItem="lf3-Yc-I5m" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" id="qK9-CR-ead"/>
+                            <constraint firstItem="lf3-Yc-I5m" firstAttribute="trailing" secondItem="O1u-W8-tvY" secondAttribute="trailing" id="rxv-87-VCS"/>
                             <constraint firstItem="WKr-Sf-X6S" firstAttribute="bottom" secondItem="O1u-W8-tvY" secondAttribute="bottom" id="uK5-lu-FFX"/>
+                            <constraint firstItem="iKy-Bh-LQ5" firstAttribute="trailing" secondItem="O1u-W8-tvY" secondAttribute="trailing" id="za0-jS-Y5w"/>
+                            <constraint firstItem="WKr-Sf-X6S" firstAttribute="top" secondItem="lf3-Yc-I5m" secondAttribute="bottom" id="zpX-2V-3PQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>

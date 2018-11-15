@@ -57,7 +57,7 @@ class Flickr {
         let queryMethod = URLQueryItem(name: FlickrAPI.method.rawValue, value: FlickrAPIParameters.interestingness.rawValue)
         let queryAPIKey = URLQueryItem(name: FlickrAPI.apiKey.rawValue, value: apiKey)
         
-        guard let yesterday = Calendar.current.date(byAdding: .day, value: -2, to: Date()) else { return }
+        guard let yesterday = Calendar.current.date(byAdding: .day, value: -1, to: Date()) else { return }
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         let queryDate = URLQueryItem(name: FlickrAPI.date.rawValue, value: formatter.string(from: yesterday))
